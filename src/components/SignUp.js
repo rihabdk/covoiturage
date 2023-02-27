@@ -1,5 +1,11 @@
 import {React , useState} from 'react';
 import '../styles/SignUp.css';
+import { Navbar, Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+
+import carpool from "../images/ima.png"
+import image from "../images/talan.jfif"
+
 import {
   MDBBtn,
   MDBContainer,
@@ -12,7 +18,6 @@ import {
   MDBCheckbox
 }
 from 'mdb-react-ui-kit';
-import carpool from '../images/carpool.png';
 
 function SignUp() {
  const [email, setEmail] = useState('');
@@ -30,7 +35,18 @@ function SignUp() {
 
   return (
 
+<div>
+<Navbar bg="light" expand="lg">
+    <Navbar.Brand href="#"></Navbar.Brand>
+    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+    <Navbar.Collapse id="basic-navbar-nav">
+      <Nav className="ml-auto">
+        
+        <img src={image} alt="Nom de l'image" style={{ width: '1500px', height: '200px'}}/>
 
+      </Nav>
+    </Navbar.Collapse>
+  </Navbar> 
    <form onSubmit={handleSubmit}>
      
       
@@ -62,12 +78,11 @@ function SignUp() {
 
               <MDBInput wrapperClass='mb-4' label='Password' id='form4' type='password'/>
 
-              
+              <Link to="/test">
+               <MDBBtn className='w-100 mb-4' size='md'>sign up</MDBBtn>
+               </Link>
 
-              <MDBBtn className='w-100 mb-4' size='md'>sign up</MDBBtn>
-                
-               {isValid ? <p>Valid email</p> : <p>Invalid email</p>}
-
+               {isValid ? <p> Valid email</p> : <p>Invalid email</p>}
               <div className="text-center">
 
 
@@ -100,7 +115,8 @@ function SignUp() {
 
       </MDBRow>
 
-    </MDBContainer>      </form>
+    </MDBContainer>      </form> </div>
+
 
   );
 }
