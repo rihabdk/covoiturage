@@ -1,5 +1,16 @@
+
+//import '../styles/SignUp.css';
 import {React , useState} from 'react';
-import '../styles/SignUp.css';
+import { Navbar, Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import carpool from '../images/carpool.png';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+
+
+//import carpool from "../images/ima.png"
+import image from "../images/talan.jfif"
+
 import {
   MDBBtn,
   MDBContainer,
@@ -12,10 +23,9 @@ import {
   MDBCheckbox
 }
 from 'mdb-react-ui-kit';
-import carpool from '../images/carpool.png';
 
 function SignUp() {
- const [email, setEmail] = useState('');
+  const [email, setEmail] = useState('');
   const [isValid, setIsValid] = useState(false);
 
   function validateEmail() {
@@ -30,7 +40,18 @@ function SignUp() {
 
   return (
 
+<div>
+<Navbar bg="light" expand="lg">
+    <Navbar.Brand href="#"></Navbar.Brand>
+    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+    <Navbar.Collapse id="basic-navbar-nav">
+      <Nav className="ml-auto">
+        
+        <img src={image} alt="Nom de l'image" style={{ width: '1500px', height: '200px'}}/>
 
+      </Nav>
+    </Navbar.Collapse>
+  </Navbar> 
    <form onSubmit={handleSubmit}>
      
       
@@ -62,12 +83,29 @@ function SignUp() {
 
               <MDBInput wrapperClass='mb-4' label='Password' id='form4' type='password'/>
 
-              
+              {/* <Link to="/login">
+               <MDBBtn className='w-100 mb-4' size='md'>sign up</MDBBtn>
+               </Link> */}
 
-              <MDBBtn className='w-100 mb-4' size='md'>sign up</MDBBtn>
-                
-               {isValid ? <p>Valid email</p> : <p>Invalid email</p>}
 
+               <Popup trigger={<MDBBtn className='w-100 mb-4' size='md'>sign up</MDBBtn>} contentStyle={{ width: '300px'}}>
+                <div> 
+                  
+                  
+                  <div className="success" style={{color:"blue"}}> The account has been created !</div>
+                  <Link to="/login">
+                  <MDBBtn className='w-100 mb-4' size='md'>Sign in</MDBBtn>
+                  </Link>
+                   </div>
+
+               </Popup>
+               
+               
+
+
+
+
+               {isValid ? <p> Valid email</p> : <p></p>}
               <div className="text-center">
 
 
@@ -100,7 +138,9 @@ function SignUp() {
 
       </MDBRow>
 
-    </MDBContainer>      </form>
+    </MDBContainer>      </form> 
+    </div>
+
 
   );
 }

@@ -1,4 +1,11 @@
 import React from 'react';
+import { Navbar, Nav } from 'react-bootstrap';
+import image from "../images/talan.jfif"
+import { Link } from 'react-router-dom';
+import '../styles/SignIn.css';
+//import carpool from "../images/car.png"
+import carpool from '../images/carpool.png';
+
 import {
   MDBBtn,
   MDBContainer,
@@ -13,14 +20,25 @@ import {
 from 'mdb-react-ui-kit';
 
 function SignIn() {
-  return (
+  return ( 
+    <div>     <Navbar bg="light" expand="lg">
+    <Navbar.Brand href="#"></Navbar.Brand>
+    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+    <Navbar.Collapse id="basic-navbar-nav">
+      <Nav className="ml-auto">
+        
+        <img src={image} alt="Nom de l'image" style={{ width: '1500px', height: '200px'}}/>
+
+      </Nav>
+    </Navbar.Collapse>
+  </Navbar> 
     <MDBContainer className='my-5'>
       <MDBCard>
 
         <MDBRow className='g-0 d-flex align-items-center'>
 
           <MDBCol md='4'>
-            <MDBCardImage src='https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg' alt='phone' className='rounded-t-5 rounded-tr-lg-0' fluid />
+            <MDBCardImage src={carpool} alt='phone' className='rounded-t-5 rounded-tr-lg-0' fluid />
           </MDBCol>
 
           <MDBCol md='8'>
@@ -34,9 +52,16 @@ function SignIn() {
                 <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' />
                 <a href="!#">Forgot password?</a>
               </div>
+              <Link to="/rides">
 
-              <MDBBtn className="mb-4 w-100">Sign in</MDBBtn>
+              <MDBBtn className="mb-4 w-100">Sign in</MDBBtn>               </Link>
 
+              <Link to="/">
+              <MDBBtn className="mb-4 w-100">Create a new account</MDBBtn>
+
+             
+              
+              </Link>
             </MDBCardBody>
 
           </MDBCol>
@@ -44,7 +69,8 @@ function SignIn() {
         </MDBRow>
 
       </MDBCard>
-    </MDBContainer>
+    </MDBContainer>   </div>
+
   );
 }
 
